@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    home page
+{% endblock %}
+
+{% block body %}
+<br><br>
+<h1 style="display: flex;justify-content: center; align-items: center;">QR Code Generator</h1>
+
+<br><br>
+<form action="/" method="post" class="form-contact" style="display: flex;justify-content: center; align-items: center;">
+    <label for="form-contact">Enter Text to Generate QR Code:</label>
+    <input type="text" name="value" value='' required>
+    <input type="submit" value="Generate QR Code">
+</form>
+
+{% if qrcode %}
+    <img src="{{ qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=8, ) }} "  style="display: flex;justify-content: center; align-items: center;"><br>
+{% endif %}
+
+{% endblock %} 
